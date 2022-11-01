@@ -6,7 +6,8 @@
 //declare
 int isApha(char* str);
 void change_to_lower(char* str);
-void initialize_guess(char* guess);
+int guess_word(char* user_input, char* user_guess, char* guess);
+int check_finish(char* guess, int size);
 
 // check if string contain alphabets
 int isAlpha(char* str)
