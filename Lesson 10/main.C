@@ -125,8 +125,8 @@ int main(void)
 			{
 				count--;
 			}
+			// flush stdin
 			fflush(stdin);
-			// check if the guess is correct
 		}
 
 	}
