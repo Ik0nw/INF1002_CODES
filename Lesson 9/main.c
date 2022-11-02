@@ -37,11 +37,13 @@ void find_pattern(char *pattern, char *userinput) {
   int found = 0;
   for (i = 0; i < strlen(userinput); i++) {
     for (j = 0; j < strlen(pattern) + 1; j++) {
+      // check if it reaches the end of the pattern, if yes means all pattern match return the index of the starting index that match
       if (j == strlen(pattern)) {
         found = 1;
         printf("Matches at position %d.\n", i);
         i = strlen(userinput);
       }
+      // check if got . to match any character if yes, skip the current loop
       if (pattern[j] == '.') {
         continue;
       } else if (pattern[j] == userinput[i + j]) {
