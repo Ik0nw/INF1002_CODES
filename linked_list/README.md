@@ -51,3 +51,88 @@ void insertElem(Link*p, int element, int add)
 }
 
 ```
+
+If let say there's no head node in the linked list.
+
+![image](https://user-images.githubusercontent.com/48197340/199877700-5bd4a142-169d-41c1-a142-25d9101ffa1b.png)
+
+1)set the inserted node point to the head node
+
+2) Head pointer points to the current node
+
+Important to take node that, since we are changing the value of head pointer struct, we have to return it for new value.
+
+```c
+Link* insertElemenet(Link*p, int element, int add)
+{
+  if(add = 1)
+  { 
+    Link*c = (Link*)malloc(sizeof(struct Link));
+    c->element = element;
+    c->next = p;
+    // head pointer now point at our newly inserted head node.
+    p = c;
+    return p;
+  }
+  else
+  {
+    int i =;
+    Link* temp = p;
+    // as we do not have head node, therefore we have to - 1
+    for (i=0; i < add - 1; i++)
+    {
+      temp = temp->next;
+      if (temp == NULL)
+        printf("invalid insertion");
+    }
+   Link*c = (Link*)malloc(sizeof(struct Link));
+   c->element = element;
+   c->next = temp->next;
+   temp->next = c;
+   return p;
+  {
+}
+```
+
+# Delete element in linked list
+
+When deleting a specified data element from the linked list, it is actually removing the node containing the data element from the linked list.
+
+  1. Find the previous node that we wanted to delete.
+  
+  2. Remove the node from the linked list
+  
+  3. Manually release the memory space occupied by the node
+  
+  ![image](https://user-images.githubusercontent.com/48197340/199889112-af0613d4-47b0-4898-9603-f449733e3f09.png)
+  
+`temp->next = temp->next->next;`
+
+Actually code will be :
+
+```c
+int delElem(Link* p, int element)
+{
+  Link*del = NULL;
+  *temp = p;
+  int find = 0;
+  // find the node before the deleted node.
+  while(temp->){
+    if (temp->next->element == element)
+    {
+      find = 1;
+      break;
+    }
+    temp = temp->next;
+    }
+    if (find == 0）
+      return -1; //delete failed
+    else
+    {
+      del = temp->next;
+      temp->next = temp->next->next;
+      free(del);
+      return 1;
+    }
+}
+```
