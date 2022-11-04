@@ -130,9 +130,54 @@ int delElem(Link* p, int element)
     else
     {
       del = temp->next;
+      // which what shown in graph
       temp->next = temp->next->next;
+      // free the memory location in heap
       free(del);
       return 1;
     }
+}
+```
+
+For linkedlist without the head node, have to consider condition when delete the start node. Somehow similar to previous example.
+
+![image](https://user-images.githubusercontent.com/48197340/199890613-96025d06-88f9-4712-99fd-beacefa659e5.png)
+
+```c
+int delElem(Link**p, int element)
+{
+  Link* del = NULL;
+  *temp = *p;
+  if(temp->element == element)
+  {
+    (*p) = (*p)->next;
+    free(temp);
+    return 1;
+  }
+  else
+  {
+    int find = 0;
+    // // find the node before the deleted node.
+    while(temp->next){
+      if (temp->next->element == element){
+        find = 1 ;
+        break;
+      }
+      temp = temp->next;
+    }
+    if (find ==0)
+      return -1;
+  }
+  else
+  {
+    // Get the deleted node
+    del = temp->next;
+    // Remove the deleted node from linked list
+    temp->next = temp->next->next;
+    // Free the memory space in heap
+    free(del);
+    return 1;
+    }
+  }
 }
 ```
