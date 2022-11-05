@@ -68,7 +68,7 @@ int main(void)
 	temp = head->next;
 	while (temp != NULL)
 	{
-		printf("Word = %c\n", temp->word[0]);
+		printf("Word = %c\n", temp->word);
 		temp = temp->next;
 	}
 	free_memory(p);
