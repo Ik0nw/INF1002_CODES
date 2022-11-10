@@ -73,11 +73,10 @@ Link* initLink(Link* p, Link* head)
 	Link* last_node = NULL;
 	while (1)
 	{
-		printf("Please enter a word: ");
 		scanf("%s", word);
 		if (!strcmp(word, stop))
 		{
-			printf("All the entered workds in orders:\n");
+			printf("All the entered words in order:\n");
 			break;
 		}
 		else {
